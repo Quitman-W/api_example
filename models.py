@@ -34,6 +34,7 @@ class ApiResponse:
     # after you populate ^ do this
     def __post_init__(self):
         self.info = ApiInfo(**self.info)
+        # using list comprehension unpacks into characterschema dataclass
         self.results = [CharacterSchema(**x) for x in self.results]
 
 
