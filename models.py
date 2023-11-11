@@ -31,6 +31,7 @@ class ApiResponse:
     info: ApiInfo
     results: List[CharacterSchema]
 
+    # after you populate ^ do this
     def __post_init__(self):
         self.info = ApiInfo(**self.info)
         self.results = [CharacterSchema(**x) for x in self.results]
